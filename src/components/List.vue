@@ -1,6 +1,5 @@
 <template>
   <b-table :fields="fields" :items="companies" hover responsive="true">
-    <!-- Button click goes to /view/{key} -->
     <template v-slot:cell(key)="cell">
       <b-btn @click.stop="view(cell.item)" variant="info">
         <v-icon name="eye"/>
