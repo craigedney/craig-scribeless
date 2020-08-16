@@ -7,17 +7,14 @@
         </h2>
         <hr class="my-4">
         <b-form @submit="onSubmit">
-          <!-- Company Title Input -->
           <b-form-input id="title" placeholder="Enter Company Title" v-model.trim="board.title"></b-form-input>
-          <!-- Company Description Input -->
+          <br>
           <b-form-textarea id="description" placeholder="Enter Company Description" v-model="board.description">
             {{ board.description }}
           </b-form-textarea>
           <hr>
-          <!-- Save Button -->
           <b-button type="submit" variant="primary">Save</b-button>
           &nbsp;
-          <!-- Back Button -->
           <b-button href="#/">Cancel</b-button>
         </b-form>
       </b-jumbotron>

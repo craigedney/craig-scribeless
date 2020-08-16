@@ -8,6 +8,7 @@
 
 <script>
 import Navbar from "@/components/Navbar";
+
 export default {
   name: 'App',
   components: {Navbar},
@@ -27,6 +28,7 @@ export default {
   color: #2c3e50;
   margin-top: 0px;
 }
+
 #main {
   padding: 10px;
 }

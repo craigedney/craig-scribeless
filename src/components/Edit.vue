@@ -9,23 +9,20 @@
           {{ board.description }}
         </p>
         <hr class="my-4">
-
-        <!-- -->
         <b-form @submit="onSubmit">
           <b-form-input id="title" v-model.trim="board.title"></b-form-input>
+          <br>
           <b-form-textarea :max-rows="6"
                            :rows="2"
                            id="description"
-                           placeholder="Enter something"
+                           placeholder="No description"
                            v-model="board.description">{{ board.description }}
           </b-form-textarea>
           <hr>
           <div class="clearfix">
-          <!-- Update Button -->
-          <b-button type="submit" variant="primary">Update</b-button>
-          &nbsp;
-          <!-- Cancel Button -->
-          <router-link :to="{ name: 'View', params: { id: key } }" tag="b-button">Cancel</router-link>
+            <b-button type="submit" variant="primary">Update</b-button>
+            &nbsp;
+            <router-link :to="{ name: 'View', params: { id: key } }" tag="b-button">Cancel</router-link>
           </div>
         </b-form>
       </b-jumbotron>

@@ -9,30 +9,24 @@
           {{ board.description }}
         </template>
         <hr class="my-4">
-
-        <!-- -->
         <div class="clearfix">
           <div class="float-left">
-            <!-- Edit Button -->
-            <b-btn @click.stop="edit(key)" class="edit-btn" variant="success">Edit</b-btn>
-            &nbsp;
-            <!-- Back Button -->
+            <b-btn @click.stop="edit(key)" class="edit-btn" variant="primary">Edit</b-btn>&nbsp;
             <b-button href="#/">Back</b-button>
           </div>
           <div class="float-right">
-            <!-- Delete Button -->
             <b-button @click="modalShow = !modalShow" variant="danger">
               <v-icon name="trash-alt"/>
             </b-button>
           </div>
         </div>
-          <b-modal centered size="sm" title="Are you sure?" v-model="modalShow">
-            <p>This record will be deleted.</p>
-            <template v-slot:modal-footer>
-              <b-btn @click.stop="del(key)" variant="danger">Delete</b-btn>
-              <b-btn @click="modalShow = !modalShow">Cancel</b-btn>
-            </template>
-          </b-modal>
+        <b-modal centered size="sm" title="Are you sure?" v-model="modalShow">
+          <p>This record will be deleted.</p>
+          <template v-slot:modal-footer>
+            <b-btn @click.stop="del(key)" variant="danger">Delete</b-btn>
+            <b-btn @click="modalShow = !modalShow">Cancel</b-btn>
+          </template>
+        </b-modal>
       </b-jumbotron>
     </b-col>
   </b-row>
@@ -41,6 +35,7 @@
 <script>
 import firebase from '../Firebase'
 import router from '../router'
+
 export default {
   name: 'View',
   data() {
