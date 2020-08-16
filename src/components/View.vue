@@ -9,6 +9,8 @@
           {{ board.description }}
         </template>
         <hr class="my-4">
+
+        <!-- -->
         <div class="clearfix">
           <div class="float-left">
             <!-- Edit Button -->
@@ -22,16 +24,15 @@
             <b-button @click="modalShow = !modalShow" variant="danger">
               <v-icon name="trash-alt"/>
             </b-button>
-            <b-modal centered size="sm" title="Are you sure?" v-model="modalShow">
-              <p>This record will be deleted.</p>
-              <template v-slot:modal-footer>
-                <b-btn @click.stop="del(key)" variant="danger">Delete</b-btn>
-                <b-btn @click="modalShow = !modalShow">Cancel</b-btn>
-              </template>
-            </b-modal>
-
           </div>
         </div>
+          <b-modal centered size="sm" title="Are you sure?" v-model="modalShow">
+            <p>This record will be deleted.</p>
+            <template v-slot:modal-footer>
+              <b-btn @click.stop="del(key)" variant="danger">Delete</b-btn>
+              <b-btn @click="modalShow = !modalShow">Cancel</b-btn>
+            </template>
+          </b-modal>
       </b-jumbotron>
     </b-col>
   </b-row>
@@ -40,8 +41,6 @@
 <script>
 import firebase from '../Firebase'
 import router from '../router'
-
-
 export default {
   name: 'View',
   data() {

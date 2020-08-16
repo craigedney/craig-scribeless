@@ -1,11 +1,8 @@
 <template>
-  <!-- Row click goes to /view without key -->
-  <b-table :fields="fields" :items="companies" @row-clicked="(view({}))" hover responsive="true"
-           select-mode="single"
-           selectable striped>
+  <b-table :fields="fields" :items="companies" hover responsive="true">
     <!-- Button click goes to /view/{key} -->
     <template v-slot:cell(key)="cell">
-      <b-btn @click.stop="view(cell.item)">
+      <b-btn @click.stop="view(cell.item)" variant="info">
         <v-icon name="eye"/>
       </b-btn>
     </template>
@@ -21,8 +18,8 @@ export default {
   data() {
     return {
       fields: [
-        {key: 'key', label: 'key'},
-        {key: 'title', label: 'company', sortable: true},
+        {key: 'key', label: ''},
+        {key: 'title', label: '', sortable: true},
       ],
       companies: [],
       errors: [],

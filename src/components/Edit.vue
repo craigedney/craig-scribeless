@@ -2,9 +2,15 @@
   <b-row>
     <b-col cols="12">
       <b-jumbotron>
-        <template slot="lead">
+        <h2>
           {{ board.title }}
-        </template>
+        </h2>
+        <p>
+          {{ board.description }}
+        </p>
+        <hr class="my-4">
+
+        <!-- -->
         <b-form @submit="onSubmit">
           <b-form-input id="title" v-model.trim="board.title"></b-form-input>
           <b-form-textarea :max-rows="6"
@@ -13,11 +19,14 @@
                            placeholder="Enter something"
                            v-model="board.description">{{ board.description }}
           </b-form-textarea>
+          <hr>
+          <div class="clearfix">
           <!-- Update Button -->
           <b-button type="submit" variant="primary">Update</b-button>
           &nbsp;
           <!-- Cancel Button -->
           <router-link :to="{ name: 'View', params: { id: key } }" tag="b-button">Cancel</router-link>
+          </div>
         </b-form>
       </b-jumbotron>
     </b-col>
