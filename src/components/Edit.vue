@@ -6,9 +6,17 @@
           {{ board.title }}
         </template>
         <b-form @submit="onSubmit">
-          <Form>
-          </Form>
-          <b-button type="submit" variant="primary">Update</b-button>&nbsp;
+          <b-form-input id="title" v-model.trim="board.title"></b-form-input>
+          <b-form-textarea :max-rows="6"
+                           :rows="2"
+                           id="description"
+                           placeholder="Enter something"
+                           v-model="board.description">{{ board.description }}
+          </b-form-textarea>
+          <!-- Update Button -->
+          <b-button type="submit" variant="primary">Update</b-button>
+          &nbsp;
+          <!-- Cancel Button -->
           <router-link :to="{ name: 'View', params: { id: key } }" tag="b-button">Cancel</router-link>
         </b-form>
       </b-jumbotron>
@@ -19,11 +27,9 @@
 <script>
 import firebase from '../Firebase'
 import router from '../router'
-import Form from "@/components/Form";
 
 export default {
   name: 'Edit',
-  components: {Form},
   data() {
     return {
       key: this.$route.params.id,
@@ -48,9 +54,6 @@ export default {
         this.key = ''
         this.board.title = ''
         this.board.description = ''
-        this.board.phone = ''
-        this.board.email = ''
-        this.board.url = ''
         router.push({name: 'View', params: {id: this.$route.params.id}})
       })
           .catch((error) => {

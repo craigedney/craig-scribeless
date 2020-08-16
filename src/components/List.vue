@@ -41,6 +41,9 @@ export default {
     });
   },
   methods: {
+    onRowSelected(items) {
+      this.companies = items
+    },
     view(data) {
       router.push({name: 'View', params: {id: data.key}})
     }
