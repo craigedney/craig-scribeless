@@ -16,7 +16,7 @@
           <b-button type="submit" variant="primary">Save</b-button>
           &nbsp;
           <!-- Back Button -->
-          <b-button href="#/">Back</b-button>
+          <b-button href="#/">Cancel</b-button>
         </b-form>
       </b-jumbotron>
     </b-col>
