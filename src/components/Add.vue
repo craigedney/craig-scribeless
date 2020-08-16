@@ -3,19 +3,13 @@
     <b-col cols="12">
       <b-jumbotron>
         <h2>
-          Create Entry
+          New Entry
         </h2>
+        <hr>
         <b-form @submit="onSubmit">
-          <!-- Company Title Input -->
-          <b-form-input id="title" placeholder="Enter Company Title" v-model.trim="board.title"></b-form-input>
-          <!-- Company Description Input -->
-          <b-form-textarea id="description" placeholder="Enter Company Description" v-model="board.description">
-            {{ board.description }}
-          </b-form-textarea>
-          <!-- Save Button -->
-          <b-button type="submit" variant="primary">Save</b-button>
-          &nbsp;
-          <!-- Back Button -->
+          <Form>
+          </Form>
+          <b-button type="submit" variant="primary">Save</b-button>&nbsp;
           <b-button href="#/">Back</b-button>
         </b-form>
       </b-jumbotron>
@@ -26,9 +20,11 @@
 <script>
 import firebase from '../Firebase'
 import router from '../router'
+import Form from "@/components/Form";
 
 export default {
   name: 'Add',
+  components: {Form},
   data() {
     return {
       ref: firebase.firestore().collection('companies'),
@@ -41,7 +37,9 @@ export default {
       this.ref.add(this.board).then(() => {
         this.board.title = ''
         this.board.description = ''
-
+        this.board.phone = ''
+        this.board.email = ''
+        this.board.url = ''
         router.push({
           name: 'List'
         })

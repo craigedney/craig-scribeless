@@ -7,6 +7,14 @@
         </template>
         <template slot="lead">
           {{ board.description }}
+<br>
+          <hr>
+          {{ board.url }}
+<br>
+          <hr>
+          {{ board.phone }}
+<br>
+          {{ board.email }}
         </template>
         <hr class="my-4">
         <div class="clearfix">
